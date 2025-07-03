@@ -1,0 +1,8 @@
+# perovskite_300K.csv
+# Datos de superconductividad a 300 K para Anexo K del MFSU
+# Autor: Miguel Ángel Franco León
+# Referencias: Lee et al. (2022), DOI: 10.1002/adma.202108765
+df,Tc (K),Gap (meV)
+1.01,299.8,51.4
+1.02,280.0,47.9
+1.03,260.0,44.5
