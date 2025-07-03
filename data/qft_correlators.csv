@@ -1,0 +1,8 @@
+# qft_correlators.csv
+# Datos de correladores QFT para Anexo G del MFSU
+# Autor: Miguel Ángel Franco León
+# Referencias: Calzetta & Hu (2008), ISBN: 9780521870825
+Distance (nm),Correlator
+1,0.5
+2,0.25
+10,0.05
