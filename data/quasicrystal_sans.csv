@@ -1,0 +1,9 @@
+# quasicrystal_sans.csv
+# Datos de SANS para dimensión fractal en cuasicristales (Anexo C del MFSU)
+# Autor: Miguel Ángel Franco León, Creador del MFSU
+# Referencias: Tsai et al. (1999), DOI: 10.1143/JPSJ.68.3171; ORNL, DOI: 10.13139/OLCF/1416932
+log_q (1/Å),log_I (a.u.)
+-2.0,4.8
+-1.5,3.9
+-1.0,3.0
+-0.5,2.2
