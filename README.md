@@ -5,7 +5,7 @@
 **Contacto**: [mf410360@gmail.com]
 
 ## Descripción
-El **Modelo Fractal Estocástico Unificado (MFSU)**, desarrollado por Miguel Ángel Franco León con asistencia de Grok 3 (xAI), predice superconductividad a temperatura ambiente (\( T_c = 299.8 \pm 0.5 \, \text{K} \)) en perovskitas fractalizadas (\( d_f = 1.01 \)), con un error de 0.07% frente a >20% de BCS/Hubbard. Los Anexos A-L, basados en datos reales (DOI: 10.17188/1279547, 10.5281/zenodo.4678923), validan aplicaciones en:
+El **Modelo Fractal Estocástico Unificado (MFSU)**, desarrollado por Miguel Ángel Franco León, predice superconductividad a temperatura ambiente (\( T_c = 299.8 \pm 0.5 \, \text{K} \)) en perovskitas fractalizadas (\( d_f = 1.01 \)), con un error de 0.07% frente a >20% de BCS/Hubbard. Los Anexos A-L, basados en datos reales (DOI: 10.17188/1279547, 10.5281/zenodo.4678923), validan aplicaciones en:
 - **Tesla**: Transmisión de energía sin pérdidas.
 - **Neuralink**: Qubits fractales (fidelidad 97.8%, Anexo J).
 - **SpaceX**: Correladores QFT para cosmología (Anexo G).
