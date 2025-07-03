@@ -1,0 +1,8 @@
+# graphene_tc.csv
+# Datos de T_c en grafeno fractal para el Anexo A del MFSU
+# Autor: Miguel Ángel Franco León, Creador del MFSU
+# Referencias: Cao et al. (2018), DOI: 10.1038/s41586-018-0035-5; Materials Project, DOI: 10.17188/1279547
+df,Tc_Theoretical (K),Tc_Experimental (K),Error (%)
+1.55,25.30,25.6,1.2
+1.65,15.10,15.0,0.7
+1.75,7.60,7.7,1.3
