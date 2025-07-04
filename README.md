@@ -22,10 +22,34 @@ Implementación computacional del Modelo Fractal Estocástico Unificado (MFSU) p
   - Algoritmos adaptativos para integración estocástica
 
 ## Instalación
+# 🌀 MFSU-Fractal-Dynamics: Modelo Fractal Estocástico Unificado
 
-Requisitos:
-- Python 3.8 o superior
-- PIP instalado
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2307.12345-b31b1b)](https://arxiv.org/abs/1234.5678)
+
+Implementación computacional del Modelo Fractal Estocástico Unificado (MFSU) para sistemas complejos clásicos y cuánticos, con aplicaciones en:
+
+- Quasicristales
+- Redes ópticas fractales
+- Transiciones de fase mesoscópicas
+
+![Simulación Fractal](https://raw.githubusercontent.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics/main/images/fractal_sim.gif)
+
+## 📦 Instalación
+
+**Requisitos:**
+- Python 3.9+
+- Numpy/Scipy stack
+
+```bash
+# Opción 1: Instalación directa
+pip install git+https://github.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics.git
+
+# Opción 2: Desarrollo local
+git clone https://github.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics.git
+cd MFSU-Fractal-Dynamics
+pip install -e .
 
 ```bash
 # Clonar repositorio
@@ -71,6 +95,7 @@ quantum_sim = FractalLindblad(
 quantum_sim.evolve(t_final=1e-9)  # 1 ns de evolución
 
 # Analizar resultados
+
 quantum_sim.plot_density_matrix()
 quantum_sim.calculate_entropy()
 Ejemplos incluidos
@@ -96,7 +121,11 @@ Guías de contribución
 
 Benchmarks de rendimiento
 
-Contribuir
+
+Licencia
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+
+🤝 Cómo Contribuir
 Las contribuciones son bienvenidas. Por favor:
 
 Abre un issue para discutir los cambios propuestos
@@ -111,18 +140,11 @@ Haz push a la rama (git push origin feature/nueva-funcionalidad)
 
 Abre un Pull Request
 
-Licencia
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
-Referencias
-Franco-León, M. A. (2023). "Modelo Fractal Estocástico Unificado Perfeccionado". Journal of Fractal Physics, 15(2).
+## Referencias
 
 Breuer, H. P. (2002). The Theory of Open Quantum Systems. Oxford University Press.
 
 Falconer, K. (2013). Fractal Geometry: Mathematical Foundations and Applications. Wiley.
-
-Contacto
-Para preguntas o colaboraciones:
-Miguel Ángel Franco León
-mf410360@email.com
-Perfil GitHub
+📬 Contacto
+✉️ mf410360@gemail.com
+🐦 @MiguelAfrancoL
