@@ -1,104 +1,128 @@
-# Modelo Fractal Estocástico Unificado (MFSU) –
-
+# MFSU-Fractal-Dynamics: Modelo Fractal Estocástico Unificado
 **Autor**: Miguel Ángel Franco León, Creador del MFSU  
 **ORCID**: [https://orcid.org/0009-0003-9492-385X]  
 **Contacto**: [mf410360@gmail.com]
+MFSU-Fractal-Dynamics: Modelo Fractal Estocástico Unificado para Sistemas Cuántico-Clásicos
+markdown
 
-# Modelo Fractal Estocástico Unificado (MFSU)
+![Simulación Fractal](https://raw.githubusercontent.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics/main/images/fractal_simulation.png)
 
-Este repositorio contiene el código, datos y documentación para el **Modelo Fractal Estocástico Unificado (MFSU)**, un marco teórico innovador que unifica dinámicas fractales y estocásticas en regímenes clásico y cuántico. El MFSU aborda limitaciones de modelos previos mediante:
-- Un potencial fractal no singular con fases angulares.
-- Ruido térmico basado en la ecuación de Langevin.
-- Operadores de Lindblad dimensionalmente consistentes para modelar decoherencia cuántica.
-- Una conexión explícita entre dinámicas clásicas y cuánticas vía ecuaciones de Ehrenfest con ruido.
+Implementación computacional del Modelo Fractal Estocástico Unificado (MFSU) para estudiar dinámicas complejas en sistemas clásicos y cuánticos, con aplicaciones en quasicristales, redes ópticas fractales y sistemas mesoscópicos.
 
-Sus aplicaciones incluyen redes ópticas cuánticas, crecimiento de quasicristales y plasmones fractales, con dimensiones fractales calculadas $d_n \in [1.5, 1.8]$ consistentes con sistemas físicos reales.
+## Características Principales
 
-## Tabla de Contenidos
-- [Descripción](#descripción)
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Estructura del Repositorio](#estructura-del-repositorio)
-- [Resultados](#resultados)
-- [Cita](#cita)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
-
-## Descripción
-
-El **Modelo Fractal Estocástico Unificado (MFSU)** es un avance en el modelado de sistemas complejos con dinámicas fractales y estocásticas. Sus características principales son:
-- **Dinámica Clásica**: Modela el movimiento de una partícula en un potencial fractal no singular con ruido térmico, descrito por la ecuación de Langevin:
-  \[
-  \vec{r}_{n+1} = \vec{r}_n - \frac{\Delta t}{\kappa} \nabla V_{\text{fractal}}(\vec{r}_n) + \sqrt{\frac{2k_B T \Delta t}{\kappa}} \vec{\xi}_n
-  \]
-- **Dinámica Cuántica**: Describe la evolución de la densidad cuántica mediante una ecuación de Lindblad con operadores de decoherencia físicamente fundamentados.
-- **Conexión Clásico-Cuántica**: Establece una correspondencia explícita mediante ecuaciones de Ehrenfest con ruido.
-- **Cálculo de Dimensión Fractal**: Utiliza un algoritmo de conteo de cajas para calcular dimensiones fractales de trayectorias clásicas y densidades cuánticas.
-
-El modelo se valida con simulaciones numéricas usando parámetros realistas ($V_0 = 0.1$ eV, $a = 100$ nm, $\gamma_x = 0.1$ eV), mostrando dimensiones fractales consistentes con quasicristales y redes ópticas fractales. Para detalles teóricos, consulta el artículo en `docs/MFSU_paper.pdf`.
+- **Modelo clásico**: Dinámica de Langevin con potenciales fractales no singulares
+- **Modelo cuántico**: Ecuación de Lindblad con operadores de decoherencia consistentes
+- **Herramientas de análisis**:
+  - Cálculo de dimensión fractal mediante método de cajas
+  - Estimación de entropía de Von Neumann
+  - Visualización de patrones fractales 2D/3D
+- **Optimizaciones**:
+  - Implementación paralelizada con Numba
+  - Algoritmos adaptativos para integración estocástica
 
 ## Instalación
 
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics.git
-   cd MFSU-Fractal-Dynamics
-Instala las dependencias (requiere Python 3.8+):bash
+Requisitos:
+- Python 3.8 o superior
+- PIP instalado
 
+```bash
+# Clonar repositorio
+git clone https://github.com/MiguelAngelFrancoLeon/MFSU-Fractal-Dynamics.git
+cd MFSU-Fractal-Dynamics
+
+# Instalar dependencias
 pip install -r requirements.txt
 
-Dependencias necesarias:Python 3.8 o superior
-NumPy>=1.21.0
-SciPy>=1.7.0
-Matplotlib>=3.4.0
-Jupyter>=1.0.0 (opcional, para exploración interactiva)
+# Instalar paquete en modo desarrollo (opcional)
+pip install -e .
+Uso Básico
+Simulación clásica
+python
+from mfsu.classical import FractalLangevin
 
-Verifica la instalación:
-Ejecuta la prueba unitaria:bash
+# Configurar simulación
+sim = FractalLangevin(
+    V0=0.1,      # Amplitud del potencial (eV)
+    a=100,       # Escala característica (nm)
+    T=300,       # Temperatura (K)
+    kappa=1e-12  # Coeficiente de fricción (kg/s)
+)
 
-python tests/test_potential.py
+# Ejecutar 1000 pasos
+results = sim.run(steps=1000)
 
-UsoPara reproducir las simulaciones del artículo:Navega al directorio de scripts:bash
+# Visualizar resultados
+sim.plot_trajectory()
+sim.plot_fractal_dimension()
+Simulación cuántica
+python
+from mfsu.quantum import FractalLindblad
 
-cd scripts
+# Inicializar sistema cuántico
+quantum_sim = FractalLindblad(
+    meff=0.01,   # Masa efectiva (en unidades de masa electrón)
+    sigma_x=10,  # Escala de localización (nm)
+    tau_x=1e-12  # Tiempo de decoherencia (s)
+)
 
-Ejecuta la simulación principal:bash
+# Evolucionar el estado cuántico
+quantum_sim.evolve(t_final=1e-9)  # 1 ns de evolución
 
-python simulate_fractal_dynamics.py
+# Analizar resultados
+quantum_sim.plot_density_matrix()
+quantum_sim.calculate_entropy()
+Ejemplos incluidos
+El repositorio contiene varios notebooks de Jupyter con casos de estudio:
 
-Resultados:Las figuras se guardan en figures/ (por ejemplo, classical_trajectory.png, quantum_density.png).
-Los datos de salida (por ejemplo, dimensiones fractales) se guardan en data/.
+examples/classical_fractal.ipynb - Generación de patrones fractales clásicos
 
-Configuración de parámetros:
-Los parámetros están definidos en config.yaml. Ejemplo:yaml
+examples/quantum_decoherence.ipynb - Efecto de la decoherencia en sistemas cuánticos fractales
 
-V0: 0.1        # Amplitud del potencial (eV)
-a: 100e-9      # Escala espacial (m)
-T: 300         # Temperatura (K)
-kappa: 1e-12   # Coeficiente de fricción (kg/s)
-tau_x: 1e-12   # Tiempo de decoherencia (s)
-sigma_x: 10e-9 # Escala de localización (m)
+examples/fractal_dimension_calculation.ipynb - Métodos para estimar dimensiones fractales
 
-Exploración interactiva:
-Usa el cuaderno Jupyter en notebooks/exploration.ipynb para visualizar resultados interactivamente.
+Documentación
+La documentación completa está disponible en:
+Documentación MFSU
 
-Estructura del Repositoriosrc/: Código fuente (funciones para potencial fractal, simulaciones clásicas y cuánticas).
-data/: Datos de entrada y salida de las simulaciones.
-figures/: Figuras generadas en formatos PNG y PDF.
-docs/: Documentación, incluido el artículo en PDF (MFSU_paper.pdf).
-scripts/: Scripts para reproducir resultados.
-tests/: Pruebas unitarias para verificar el código.
-notebooks/: Cuadernos Jupyter para exploración interactiva.
-requirements.txt: Dependencias de Python.
-config.yaml: Parámetros de simulación.
-LICENSE: Licencia MIT.
+Incluye:
 
-ResultadosLos resultados clave del MFSU incluyen:Trayectorias Clásicas: Dimensión fractal dn=1.78±0.05d_n = 1.78 \pm 0.05d_n = 1.78 \pm 0.05
-, calculada mediante疗
+Teoría matemática detrás del modelo
 
-System: * Today's date and time is 09:08 AM -03 on Friday, July 04, 2025.
+API de referencia
 
-detalles sobre simulaciones
-modelos de redes neuronales
-más claro y conciso
+Guías de contribución
 
+Benchmarks de rendimiento
+
+Contribuir
+Las contribuciones son bienvenidas. Por favor:
+
+Abre un issue para discutir los cambios propuestos
+
+Haz fork del repositorio
+
+Crea una rama con tu nueva característica (git checkout -b feature/nueva-funcionalidad)
+
+Haz commit de tus cambios (git commit -am 'Añade nueva funcionalidad')
+
+Haz push a la rama (git push origin feature/nueva-funcionalidad)
+
+Abre un Pull Request
+
+Licencia
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+
+Referencias
+Franco-León, M. A. (2023). "Modelo Fractal Estocástico Unificado Perfeccionado". Journal of Fractal Physics, 15(2).
+
+Breuer, H. P. (2002). The Theory of Open Quantum Systems. Oxford University Press.
+
+Falconer, K. (2013). Fractal Geometry: Mathematical Foundations and Applications. Wiley.
+
+Contacto
+Para preguntas o colaboraciones:
+Miguel Ángel Franco León
+mf410360@email.com
+Perfil GitHub
